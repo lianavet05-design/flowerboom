@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flowers are life</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(180deg, #0f172a, #1e293b);
+    color: white;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.hero h1 {
+    position: relative;
+    font-size: 70px;
+    color: #ffd1e8;
+    backdrop-filter: blur(10px);
+    padding: 20px 50px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 10px 40px rgba(255, 182, 193, 0.4);
+}
+
+/* SECTION */
+.section {
+    padding: 100px 10%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 50px;
+    background: linear-gradient(180deg, #1e293b, #0f172a);
+}
+
+/* CARD */
+.card {
+    position: relative;
+    border-radius: 30px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 10px 40px rgba(255, 182, 193, 0.2);
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: translateY(-15px) scale(1.03);
+}
+
+/* IMAGE */
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0.9;
+}
+
+/* CONTENT */
+.card-content {
+    padding: 25px;
+}
+
+.card h2 {
+    color: #ff9ecb;
+    margin-bottom: 10px;
+}
+
+.card p {
+    opacity: 0.8;
+}
+
+/* GLOW EFFECT */
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(255,192,203,0.3), transparent);
+}
+
+/* FLOATING LIGHTS */
+.sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: pink;
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 10s linear infinite;
+}
+
+@keyframes float {
+    from { transform: translateY(100vh); }
+    to { transform: translateY(-10vh); }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>Flowers are life</h1>
+</section>
+
+<!-- FLOWERS -->
+<section class="section">
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d">
+        <div class="card-content">
+            <h2>Лотос</h2>
+            <p>Чистота, свет и спокойствие — как на воде в лучах солнца.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946">
+        <div class="card-content">
+            <h2>Тюльпаны</h2>
+            <p>Нежность и весеннее настроение в каждом лепестке.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+        <div class="card-content">
+            <h2>Розы</h2>
+            <p>Классика любви, романтики и утончённой красоты.</p>
+        </div>
+    </div>
+
+</section>
+
+<!-- SPARKLES -->
+<script>
+for (let i = 0; i < 40; i++) {
+    let s = document.createElement("div");
+    s.className = "sparkle";
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.animationDuration = (5 + Math.random()*10) + "s";
+    document.body.appendChild(s);
+}
+</script>
+
+</body>
+</html>
